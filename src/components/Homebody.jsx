@@ -9,7 +9,7 @@ function Homebody() {
         <div className="container">
           <div className="row">
             <div className="col-md-6 mb-4">
-              <div className="section-title text-start  special-m mb-xxl-5">
+              <div className="section-title text-start   ">
                 <h3 className="fw-bold my-4">One Platform for <span className="gradiant-texts"> All Business
                     Models</span></h3>
                 <p className="text-muted fs-6 ">
@@ -62,7 +62,7 @@ function Homebody() {
                   </div>
                 </div>
               </div>
-
+              
               {/* Desktop layout */}
               <div className="d-none d-md-block">
                 <div className="row gx-3 gy-3 align-items-stretch">

@@ -1,21 +1,19 @@
+/* Global design tokens */
+:root {
+    --primary-color: #e18821;
+    --text-color: #363636;
+    --background-light: #fafafa;
+    --text-muted: #4f5663;
+    --primary-gradient: linear-gradient(135deg, #f5962a 0%, #e09224 100%);
+    --gradient-light: linear-gradient(135deg, #f5962a 0%, #f5962a 100%);
+    --gradient-hover: linear-gradient(135deg, #f5962a 0%, #f5962a 100%);
+}
+
 body {
     background-color: #fafafa !important;
 
     margin: 0 !important;
     font-family: 'Inter', sans-serif !important;
-
-    font-size: var(--bs-body-font-size) !important;
-    font-weight: var(--bs-body-font-weight) !important;
-    line-height: var(--bs-body-line-height) !important;
-    color: var(--bs-body-color) !important;
-    text-align: var(--bs-body-text-align) !important;
-    background-color: var(--bs-body-bg) !important;
-    -webkit-text-size-adjust: 100% !important;
-    -webkit-tap-highlight-color: transparent !important;
-}
-
-:root,
-[data-bs-theme=light] {
     --bs-blue: #0d6efd;
     --bs-indigo: #6610f2;
     --bs-purple: #6f42c1;
@@ -136,16 +134,66 @@ body {
     --bs-breakpoint-xxl: 1400px;
 }
 
-h1, h2, h3, h4, h5, h6 {
+/* .h3, h3 {
+    font-size: calc(1.3rem + .6vw) !important;
+} */
+.container {
+    max-width: 100%;
+    /* margin: 0 auto; */
+    padding: 0 20px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 5px !important;
+        width: 95% !important;
+    }
+}
+
+@media (min-width: 576px) {
+
+    .container,
+    .container-sm {
+        max-width: 100% !important;
+        /* padding-left: 5px !important;
+        padding-right: 5px !important; */
+    }
+}
+
+@media (max-width: 768px) {
+    .section-title {
+        margin-bottom: 40px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-title h2 {
+        font-size: 1.7rem !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-title p {
+        font-size: 1rem !important;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: 'Montserrat', sans-serif !important;
 }
 
 /* .sticky-header .btn-primary:hover {
     background: var(--gradient-hover);
 } */
-.btn-hover:hover{
-     background: var(--gradient-hover) !important;
+.btn-hover:hover {
+    background: var(--gradient-hover) !important;
 }
+
 .btn-outline-custom:hover {
     background-color: var(--primary-color) !important;
     color: #fff !important;
@@ -156,19 +204,22 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--primary-color);
 }
 
-.navigation-desk a {
+.navigation-desk a,.navigation-desk button {
     color: var(--text-color);
     position: relative;
     transition: color 0.3s;
 }
+.navigation-desk button:focus{
+    color: var(--primary-color) !important;
+}
 
 
 @media (min-width: 768px) {
-    .container{
-       width: 100% !important;
+    .container {
+        width: 100% !important;
         margin: 0 auto !important;
         padding: 0 20px !important;
-                padding-left: 20px;
+        padding-left: 20px;
         padding-right: 20px;
     }
 }
@@ -193,10 +244,138 @@ h1, h2, h3, h4, h5, h6 {
 
 
 @media (min-width: 1400px) and (max-width: 1599px) {
-  .container {
-    max-width: 92% !important;
-    margin: 0 auto !important;
-    padding: 0 20px !important;
+    .container {
+        max-width: 92% !important;
+        margin: 0 auto !important;
+        padding: 0 20px !important;
+    }
+}
+
+/* 
+.section-title p {
+        margin-bottom: 0 !important;
+    font-size: 15px !important;
+    color: var(--text-muted) !important;
+} */
+
+.subtitle {
+    color: var(--text-muted) !important;
+    margin-bottom: 40px !important;
+    text-align: center;
+    font-weight: 500 !important;
+}
+/* 
+.section-title p {
+    font-size: 1.25rem !important;
+    color: #4b5563 ;
+} */
+.section-title p:nth-of-type(2) {
+    font-size: 1rem !important;
+    color: #4b5563 !important;
+    font-weight: 400 !important;
+}
+
+.hover-up:hover{
+    transform: translateY(-5px);
+  
+
+}
+.hover-up{
+  transition: .5s;
+}
+
+/* Bubble utilities */
+.bubble-host { position: relative; }
+
+/* Bubble background right */
+.bubble-bg-right::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 55px;
+  width: 270px;
+  height: 270px;
+  background: var(--primary-color);
+  border-radius: 50% 50% 70% 30% / 60% 30% 70% 40%;
+  opacity: 0.12; /* soft theme tint */
+  z-index: 0;
+  transform: translate(20%, -40%);
+  transition: all 1s ease;
+  animation: blobMorph 12s infinite ease-in-out;
+  pointer-events: none;
+}
+
+/* Bubble background left */
+.bubble-bg-left::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 55px;
+  width: 270px;
+  height: 270px;
+  background: var(--primary-color);
+  border-radius: 50% 50% 70% 30% / 60% 30% 70% 40%;
+  opacity: 0.12;
+  z-index: 0;
+  transform: translate(-20%, -40%);
+  transition: all 1s ease;
+  animation: blobMorph 12s infinite ease-in-out;
+  pointer-events: none;
+}
+@media (max-width:768px){
+.bubble-bg-left::before, .bubble-bg-right::before{
+    display: none !important;
+}
+}
+
+
+
+@keyframes blobMorph {
+  0% {
+    border-radius: 50% 50% 70% 30% / 60% 30% 70% 40%;
+    transform: scale(1);
+  }
+  25% {
+    border-radius: 40% 60% 30% 70% / 50% 60% 40% 50%;
+    transform: scale(1.05);
+  }
+  50% {
+    border-radius: 70% 30% 50% 50% / 40% 60% 60% 40%;
+    transform: scale(0.98);
+  }
+  75% {
+    border-radius: 60% 40% 60% 40% / 30% 70% 50% 50%;
+    transform: scale(1.03);
+  }
+  100% {
+    border-radius: 50% 50% 70% 30% / 60% 30% 70% 40%;
+    transform: scale(1);
   }
 }
 
+.f16{
+font-size: 16px !important;
+}
+.bgprimary{
+    background-color: var(--primary-color);
+}
+
+/* Scoped mobile spacing normalization for About page */
+@media (max-width: 768px) {
+  .about-page section {
+    padding-top: 24px !important;
+    padding-bottom: 24px !important;
+    margin-top: 12px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .about-page .section-title {
+    margin-bottom: 24px !important;
+  }
+
+  /* Reduce large utility spacers inside About page on mobile */
+  .about-page .py-5 { padding-top: 24px !important; padding-bottom: 24px !important; }
+  .about-page .my-5 { margin-top: 12px !important; margin-bottom: 12px !important; }
+  .about-page .mt-5 { margin-top: 16px !important; }
+  .about-page .mb-5 { margin-bottom: 16px !important; }
+}

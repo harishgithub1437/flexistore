@@ -7,7 +7,7 @@
 }
 
 .our-story-section p {
-  font-size: 1.2rem;
+  
   line-height: 1.6;
 }
 
@@ -16,9 +16,53 @@
 }
 
 .text-warning {
-  color: #f39c12 !important;
+  color: var(--primary-color) !important;
 }
 
 .text-success {
   color: #1ca64c !important;
+}
+
+/* Custom bullet with outline and center dot */
+.story-bullet {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--primary-color);
+  border-radius: 50%;
+  position: relative;
+}
+
+.story-bullet .dot {
+  width: 6px;
+  height: 6px;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* Vertical connector line to the paragraph, like the screenshot */
+.story-item {
+  position: relative;
+}
+
+.story-item h5 {
+  display: flex;
+  align-items: center;
+}
+
+.story-item p {
+  position: relative;
+}
+
+.story-item p::before {
+  content: "";
+  position: absolute;
+  left: -16px; /* aligns from the ms-4 paragraph indent */
+  top: -12px;
+  bottom: -12px;
+  width: 2px;
+  background: #e5e7eb; /* neutral divider */
 }

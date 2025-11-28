@@ -1,19 +1,30 @@
+/* Navbar styles
+   Purpose: site navigation (desktop/mobile), CTA button, mobile drawer
+   Tokens: pulled from App.css :root */
 
-:root {
-    --primary-color: #e18821;
-    --text-color: #363636;
-    --background-light: #fafafa;
-    --text-muted: #4f5663;
-    --primary-gradient: linear-gradient(135deg, #f5962a 0%, #e09224 100%);
-    --gradient-light: linear-gradient(135deg, #f5962a 0%, #f5962a 100%);
-    --gradient-hover: linear-gradient(135deg, #f5962a 0%, #f5962a 100%);
-}
-
+/* Navigation Styles */
 .navigation-desk a {
     color: #363636;
     position: relative;
     transition: color 0.3s;
 }
+
+.navigation-desk a:hover {
+    color: var(--primary-color);
+}
+.navigation-desk button:hover{
+    color: var(--primary-color);
+}
+
+/* Header Styles */
+.sticky-header {
+    position: sticky;
+    top: 0;
+    z-index: 1020;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
 .sticky-header .btn-primary {
     background: var(--primary-gradient);
     border: 0;
@@ -22,15 +33,210 @@
     font-size: 1.05rem;
     font-weight: 600;
     color: white;
-    transition: all 0.3s;
+    transition: color 0.3s;
     line-height: 1.35;
 }
 
+/* Button hover color change is handled globally in App.css */
 
-.sticky-header {
-    position: sticky;
-    top: 0;
-    z-index: 1020;
-    background-color: white;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+/* Mobile Menu Styles */
+.mobile-menu {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: white;
+    z-index: 1000;
+    overflow-y: auto;
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease-out;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-menu-show {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobile-nav {
+    padding: 1rem 0;
+}
+
+.mobile-nav .btn-link {
+    display: block;
+    width: 100%;
+    text-align: left;
+    color: #363636;
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    margin: 0;
+    border-radius: 0;
+    border-bottom: 1px solid #f5f5f5;
+    transition: all 0.15s ease-out;
+}
+
+.mobile-nav .btn-link:hover {
+    color: var(--primary-color);
+    background-color: rgba(233, 105, 44, 0.05);
+    text-decoration: none;
+    transform: translateX(5px);
+}
+
+/* Mobile menu button styles */
+.navbar-toggler {
+    padding: 0.5rem;
+    border: none;
+    background: transparent;
+    color: #363636;
+}
+
+.navbar-toggler:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.navbar-toggler .fa-bars,
+.navbar-toggler .fa-times {
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+/* Active state for mobile menu items */
+.mobile-nav .btn-link.active {
+    color: var(--primary-color);
+    background-color: rgba(233, 105, 44, 0.1);
+}
+
+/* CTA button in mobile menu */
+.mobile-nav .btn-primary {
+    /* margin: 1rem 1.5rem; */
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    background: var(--primary-gradient);
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.mobile-nav .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(233, 105, 44, 0.3);
+}
+
+.mobile-nav-button:hover {
+    /* keep color change only */
+    color: white;
+}
+
+/* Custom Navbar Toggler */
+.navbar-toggler {
+    padding: 6px 10px;
+    font-size: 1.25rem;
+    background: transparent;
+    border: 1px solid #e9ecef !important;
+    border-radius: 6px;
+    transition: all 0.3s;
+}
+
+.navbar-toggler:hover {
+    background-color: var(--background-light);
+    border-color: var(--primary-color) !important;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2854, 54, 54, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 2px rgba(225, 136, 33, 0.25);
+    outline: none;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 767.98px) {
+    .sticky-header {
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
+    }
+    
+    .mobile-nav-link {
+        font-size: 1.1rem;
+        padding: 16px 0;
+    }
+    
+    .mobile-nav-button {
+        font-size: 1.05rem;
+        padding: 14px 28px;
+    }
+    
+    /* Ensure proper spacing on mobile */
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .mobile-nav-link {
+        font-size: 1rem;
+        padding: 14px 0;
+    }
+    
+    .mobile-nav-button {
+        min-width: 220px;
+        font-size: 0.95rem;
+        padding: 12px 20px;
+    }
+    
+    .navbar-brand img {
+        width: 160px !important;
+    }
+}
+
+/* Desktop specific styles */
+@media (min-width: 768px) {
+    .navigation-desk a {
+        font-size: 1rem;
+    }
+    
+    .sticky-header .btn-primary {
+        font-size: 1rem;
+        padding: 12px 24px;
+    }
+}
+
+/* Animation for smooth transitions */
+.navigation-desk a,
+.mobile-nav-link,
+.btn-primary,
+.navbar-toggler {
+    transition: all 0.3s ease-in-out;
+}
+
+/* Ensure no layout shift */
+.sticky-header .container {
+    transition: all 0.3s ease-in-out;
+}
+
+/* Backdrop for mobile menu when open */
+@media (max-width: 767.98px) {
+    .mobile-menu-show {
+        border-bottom: 3px solid var(--primary-color);
+    }
+}
+
+/* Active state for links */
+.navigation-desk a:active,
+.mobile-nav-link:active {
+    color: var(--primary-color) !important;
 }

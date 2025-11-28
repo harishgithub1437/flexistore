@@ -33,7 +33,7 @@ function Whyflexistore() {
   }, []);
 
   return (
-    <section className="py-5" id="advantage">
+    <section className="py-5 bg-white" id="advantage">
       <div className="container">
         <div className="section-title">
           <h2 className="my-4">
@@ -55,30 +55,26 @@ function Whyflexistore() {
             </div>
 
             <ul className="custom-feature-list ps-0">
-              <li>
-                <h6>Freedom from Traditional Distribution</h6>
-                <p>
-                  Break free from outdated distribution chains and take control of your
-                  product journey from factory to consumer.
-                </p>
-              </li>
-              <li>
-                <h6>Zero Marketplace Dependency</h6>
-                <p>
-                  Sell directly via your owned platforms with no 15–30% commission loss
-                  to Amazon, Flipkart, or other marketplaces.
-                </p>
-              </li>
-              <li>
-                <h6>Complete Value Chain Control</h6>
-                <p>
-                  Work with loyal retailers & distributors while controlling your entire
-                  retail chain from one platform.
-                </p>
-              </li>
+						{/* <!-- Always visible items --> */}
+						<li>
+							<h6>Freedom from Traditional Distribution</h6>
+							<p>Break free from outdated distribution chains and take control of your
+								product journey from factory to consumer.</p>
+						</li>
+						<li>
+							<h6>Zero Marketplace Dependency</h6>
+							<p>Sell directly via your owned platforms with no 15–30% commission loss
+								to Amazon, Flikart, or other marketplaces.</p>
+						</li>
+						<li>
+							<h6>Complete Value Chain Control</h6>
+							<p>Work with loyal retailers & distributions while controlling your
+								entire distribution & retail chain from one platform</p>
+						</li>
 
-              <div class="extra-content-wrapper">
-							<div class="extra-content d-none">
+						{/* <!-- Hidden items --> */}
+						<div className="extra-content-wrapper">
+							<div className="extra-content d-none">
 								<li>
 									<h6>Unified Management Panel</h6>
 									<p>Manage both wholesale (B2B) orders and direct-to-consumer (D2C)
@@ -121,7 +117,7 @@ function Whyflexistore() {
 								</li>
 							</div>
 						</div>
-            </ul>
+					</ul>
 
             <div className="text-center mt-3">
               <button
@@ -134,15 +130,15 @@ function Whyflexistore() {
           </div>
 
           {/* ====== Retailers ====== */}
-          <div className="col-md-6 position-relative bubble-bg">
+          <div className="col-md-6 position-relative bubble-bg-right">
             <div className="d-flex align-items-center mb-4">
               <div className="icon-box me-3">
                 <i className="fa-solid fa-bag-shopping"></i>
               </div>
-              <h5 className="mb-0 fw-bold">For Retailers</h5>
+              <h5 className="mb-0 fw-bold">For Retailers & Distributors</h5>
             </div>
 
-            <ul class="custom-feature-list ps-0">
+          <ul class="custom-feature-list ps-0">
 						{/* <!-- Always visible items --> */}
 						<li>
 							<h6>Direct Manufacturer Access</h6>
@@ -162,8 +158,8 @@ function Whyflexistore() {
 						</li>
 
 						{/* <!-- Hidden items --> */}
-						<div class="extra-content-wrapper">
-							<div class="extra-content d-none">
+						<div className="extra-content-wrapper">
+							<div className="extra-content d-none">
 								<li>
 									<h6>Enhanced Market Position</h6>
 									<p>Gain more power in the supply chain compared to traditional distribution models,

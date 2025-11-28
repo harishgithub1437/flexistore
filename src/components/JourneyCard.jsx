@@ -3,14 +3,14 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 function JourneyCard({ year, title, description }) {
   return (
-    <div className="card border-0 bg-transparent text-center">
+    <div className="card border-0 bg-transparent text-center h-100">
       <div
         className="mx-auto d-flex align-items-center justify-content-center mb-3"
         style={{
           width: "100px",
           height: "100px",
           borderRadius: "50%",
-          background: "linear-gradient(135deg, #ff9a00, #ff6a00)",
+          background: "var(--primary-color)",
           color: "#fff",
           fontWeight: "bold",
           fontSize: "22px",
@@ -20,7 +20,7 @@ function JourneyCard({ year, title, description }) {
       </div>
       <div className="card-body">
         <h5 className="card-title fw-semibold">{title}</h5>
-        <p className="card-text text-muted">{description}</p>
+        <p className="card-text text-muted f16">{description}</p>
       </div>
     </div>
   );
@@ -49,12 +49,15 @@ export default function OurJourney() {
   ];
 
   return (
-    <section className="py-5 text-center">
-      <h2 className="fw-bold mb-5">Our Journey</h2>
+    <section className="py-5 text-center section-title text-start mb-0">
+       <h2 className="fw-bold  m-4">
+          Our <span className="gradiant-texts">Journey</span>
+        </h2>
+      
       <div className="container">
         <div className="row justify-content-center">
           {journeyData.map((item, index) => (
-            <div key={index} className="col-md-4 mb-4">
+            <div key={index} className="col-md-4 mb-4 p-4">
               <JourneyCard
                 year={item.year}
                 title={item.title}

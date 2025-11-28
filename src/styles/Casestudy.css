@@ -33,3 +33,12 @@ hr{
 .case-study-section {
     background-color: #1a1e2b !important;
 }
+
+@media (max-width: 768px) {
+    .test-text {
+        font-size: .9rem !important;
+    }
+        .user-info {
+        font-size: .8rem;
+    }
+}

@@ -1,0 +1,66 @@
+.thankyou-wrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ffffff;
+  padding: 20px;
+}
+
+.thankyou-card {
+  width: 100%;
+  max-width: 650px;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+  text-align: center;
+  overflow: hidden;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Orange Bar */
+.thankyou-top {
+  background: #df8628;
+  padding: 40px 0;
+  border-radius: 20px 20px 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tick-icon {
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+/* Title */
+.thankyou-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #d77d1f;
+  margin: 30px 20px 10px 20px;
+}
+
+/* Subtitle */
+.thankyou-subtitle {
+  font-size: 18px;
+  color: #6f6f6f;
+  margin-bottom: 40px;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mobile Friendly */
+@media (max-width: 480px) {
+  .thankyou-title {
+    font-size: 22px;
+  }
+  .thankyou-subtitle {
+    font-size: 16px;
+  }
+}

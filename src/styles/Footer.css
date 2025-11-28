@@ -44,11 +44,49 @@
 }
 
 .footer-column h3 {
-    font-size: 1.2rem;
+    font-size: 1.2rem !important;
     margin-bottom: 20px;
     color: #000;
     position: relative;
     padding-bottom: 10px;
+    
+}
+@media (max-width:768px) {
+    .special-m{
+        margin-bottom: 45px !important;
+    }
+    
+}
+
+@media (max-width: 768px) {
+    .footer-columns {
+        grid-template-columns: 1fr !important;
+        /* gap: 30px; */
+        margin-bottom: 30px !important;
+    }
+    
+
+    .CTA-section,
+    .features-section,
+    .business-model-section {
+        padding: 40px 0;
+    }
+}
+
+.footer-columns {
+    display: grid;
+    /* grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); */
+    grid-template-columns: 3fr 1fr;
+    /* gap: 40px; */
+    margin-bottom: 40px;
+}
+
+.footer-columns {
+    display: grid !important;
+    /* grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); */
+    grid-template-columns: 3fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
 }
 
 .footer-column h3::after {
@@ -101,8 +139,8 @@
 }
 
 @media (max-width:768px) {
-    .special-block-d{
+    .special-block-d {
         display: block !important;
     }
-    
+
 }

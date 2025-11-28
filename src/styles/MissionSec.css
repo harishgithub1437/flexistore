@@ -4,12 +4,12 @@
 
 .stat-number:hover {
   transform: scale(1.1);
-  color: #ff9800;
+  color: var(--primary-color);
 }
 .extra-padding{
   padding-bottom: 90px !important;
   padding-top: 100px !important;
 }
-.fs-45px{
-  font-size: 45px;
+.fs-42px{
+  font-size: 42px;
 }

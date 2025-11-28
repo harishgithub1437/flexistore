@@ -248,24 +248,34 @@ const tabs = [
 function Features() {
   const [activeTab, setActiveTab] = useState("tab1");
   const tabsRef = useRef(null);
+  const hasLoadedOnce = useRef(false);
 
   useEffect(() => {
-    // ✅ Scroll tabs to start on first load
-    if (tabsRef.current) {
-      tabsRef.current.scrollLeft = 0;
-    }
+    if (tabsRef.current) tabsRef.current.scrollLeft = 0;
   }, []);
 
   const handleTabClick = (id, e) => {
     e.preventDefault();
     setActiveTab(id);
 
-    if (tabsRef.current && e.currentTarget) {
-      const container = tabsRef.current;
-      const element = e.currentTarget;
-      const offset =
-        element.offsetLeft - container.offsetWidth / 2 + element.offsetWidth / 2;
-      container.scrollTo({ left: offset, behavior: "smooth" });
+    // ✅ Only scroll when user manually clicks a tab
+    if (hasLoadedOnce.current) {
+      const section = document.querySelector("#features");
+      if (section) {
+        window.scrollTo({
+          top: section.offsetTop - 100,
+          behavior: "smooth",
+        });
+      }
+    }
+    hasLoadedOnce.current = true;
+
+    if (e.currentTarget) {
+      e.currentTarget.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+        inline: "center",
+      });
     }
   };
 
@@ -281,22 +291,21 @@ function Features() {
           </p>
         </div>
 
-        {/* Horizontal Tabs */}
         <div className="tabs-container" ref={tabsRef}>
           {tabs.map((tab) => (
             <button
               key={tab.id}
-              type="button"
-              className={`tab-heading ${activeTab === tab.id ? "active" : ""}`}
+              className={`tab-heading ${
+                activeTab === tab.id ? "active" : ""
+              }`}
               onClick={(e) => handleTabClick(tab.id, e)}
             >
-              {tab.title}{" "}
+              {tab.title}
               {tab.badge && <span className="badge">{tab.badge}</span>}
             </button>
           ))}
         </div>
 
-        {/* Tab Content */}
         <div className="tab-content-area">
           {tabs.map((tab) => (
             <div
@@ -305,24 +314,24 @@ function Features() {
             >
               <div className="row align-items-start">
                 <div className="col-md-6">
-                  <h3>
+                  <h3 className="fw-bold">
                     {tab.title}{" "}
                     {tab.badge && <span className="badge">{tab.badge}</span>}
                   </h3>
                   <ul className="custom-feature-list ps-0">
-                    {tab.features.map((f, index) => (
-                      <li key={index}>
+                    {tab.features.map((f, i) => (
+                      <li key={i}>
                         <h6>{f.title}</h6>
                         <p>{f.desc}</p>
                       </li>
                     ))}
                   </ul>
                 </div>
-                <div className="col-md-6">
+                <div className="col-md-6 text-center">
                   <img
                     src={tab.img}
-                    className="img-fluid rounded-4"
                     alt={tab.title}
+                    className="img-fluid rounded-4"
                     loading="lazy"
                   />
                 </div>

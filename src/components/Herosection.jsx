@@ -28,7 +28,7 @@ function Herosection() {
           <div className="col-md-6 col-bg-image position-relative text-center text-md-start">
             <h1 className="display-5 fw-bold mb-4">
               Flexible Enterprise <br className="d-none d-md-block" />
-              <span>Grade Ecommerce</span> <br /> Platform.
+              <span>Grade Ecommerce</span> Platform.
             </h1>
 
             <div className="lead fw-bold mb-4">
